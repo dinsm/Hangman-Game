@@ -1,10 +1,137 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>HangManGame</title>
+        <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 
-</body>
+        <script src="./assets/javascript/game.js" type="text/javascript"></script>
+    </head>
+
+
+    <body>
+    <h1>HangMan</h1>
+
+        <div class="popup" onclick="myFunction()">How To Play?!
+            <span class="popuptext" id="myPopup">To guess the word unknown ....Click on the letters !!</span>
+        </div>
+
+        <div id="introPage">
+            <div id="introText">
+                <p>Welcome to Hangman game!</p>
+                <p>Let's begin!</p>
+                <div id="buttonContainer">
+                    <div id="sp" onclick="sp()">Single player</div>
+                    <div id="mp" onclick="mp()">Multiplayer</div>
+                </div>
+            </div>
+
+         </div>
+
+        <div id="singlePage">
+            <p>Pick a category:</p>
+            <div id="categoryHolder">
+                <div id="category">
+                    <div id="category1">
+                        <div id="90sStyle" onclick="90sStyle()">Clothes's Style</div>
+                        <div id="90sMovies" onclick="90sMovies()">Movies</div>
+                    </div>
+                    <div id="category2">
+                        <div id="music" onclick="music()">Music</div>
+                        <div id="game" onclick="game()">Game</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    <div class="wrapper">
+        <div id="buttons">
+        </div>
+            <p id="categoryName"></p>
+        <div id="hold">
+        </div>
+        <div id="alphabet">...
+            <div id="letter">
+                <a id="a">A</a>
+                <a id="b">B</a>
+                <a id="c">C</a>
+                <a id="d">D</a>
+                <a id="e">E</a>
+                <a id="f">F</a>
+                <a id="g">G</a>
+                <a id="h">H</a>
+                <a id="i">I</a>
+                <a id="j">J</a>
+                <a id="k">K</a>
+                <a id="l">L</a>
+                <a id="m">M</a>
+                <br>
+                <a id="n">N</a>
+                <a id="o">O</a>
+                <a id="p">P</a>
+                <a id="q">Q</a>
+                <a id="r">R</a>
+                <a id="s">S</a>
+                <a id="t">T</a>
+                <a id="u">U</a>
+                <a id="v">V</a>
+                <a id="w">W</a>
+                <a id="x">X</a>
+                <a id="y">Y</a>
+                <a id="z">Z</a>
+            </div>
+        </div>
+            <p id="mylives"></p>
+            <p id="clue">Clue -</p>
+    </div>
+
+
+
+
+
+    <div id="again" onClick="reset()">Play again!</div>
+    <div id="home" onClick="window.location.reload()">Main menu</div>
+
+
+
+    <!--    <div id="img">
+            <div id="imgTheme" img=src"">IMG Theme
+                <div id="imgHangMan" img=src"">IMG HangMan
+            </div>
+            </div>
+      </div>
+        <div class="gameWord">guessWord
+            <span id="guessWord">Pendu</span>
+        </div>
+
+        <div id="situationMessage">Tant d'erreurs</div>
+        <div id="newWord">
+            <button type="button" onclick="newHand">New Hand?</button>
+        </div>
+
+
+
+
+
+
+
+
+
+
+    <script>
+        // When the user clicks on div, open the popup
+        function myFunction() {
+            var popup = document.getElementById("myPopup");
+            popup.classList.toggle("show");
+        }
+    </script>  -->
+
+
+
+    </body>
+
 </html>
