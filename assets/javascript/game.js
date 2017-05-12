@@ -3,17 +3,6 @@
  */
 
 
-// window.onload = function () {
-//
-//     var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
-//         'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
-//         't', 'u', 'v', 'w', 'x', 'y', 'z'];
-// }
-
-//alphabet.onkeypress = function(){};
-// object.addEventListener("keypress", alphabet);
-
-
 function myFunction() {
     var popup = document.getElementById("myPopup");
     popup.classList.toggle("show");
@@ -21,30 +10,6 @@ function myFunction() {
 
 
 //variables.
-//var rand = 0;
-// var categories;
-// var chosenCategory;
-// var getHint ;
-
-//var rand = 0;
-// var guess ;
-// var guesses = [ ];
-
-// var counter ;
-// var space;
-
-
-// var lives ;
-
-// var showLives = document.getElementById("mylives");
-// var showCategory = document.getElementById("category1");
-// var showCategory = document.getElementById("category2");
-// var getHint = document.getElementById("hint");
-// var showClue = document.getElementById("clue");
-
-
-
-
 
 // var sStyle = ["Overalls", "Neon Windbreakers", "Vertically striped shirt", "One pant leg Rolled up", "Raiders Snapbacks", "Mood Ring", "Rollerblades", "Bandanas", "Baggys jeans", "FUBU", "Spiked hair", "Bike caps", "Hoop earings", "L.A Lites","Tatoo Necklace","Air Jordans","Slap Bracelet"];
 // var sMovies = ["Dumb and Dumber", "Jurassic Park", "Forrest Gump","Pulp Fiction","Titanic","Cruel Intentions","Space Jam","Toy Story","Jumanji","Matrix","Aladin","The Lion King","Blade","Romeo & Juliet","Fight club","Mrs Doubfire","Home Alone","The Shawshank Redemption","Boyz N the Hood","Heat","Reservoir Dog"];
@@ -96,7 +61,7 @@ function game(){
     document.getElementById('singlePage').style.display = "none";
     document.getElementById('categoryName').innerHTML = "Do You Remember?";
     hangman();
-};
+}
 
 var word ;
 var word = "";
@@ -107,6 +72,9 @@ var wordLength;
 var wordSubstring;
 var wins = 0;
 var losses = 0;
+var splitWord;
+var currentWord;
+var currentGame = false;
 
 var wordList = ["Overalls", "Neon Windbreakers", "Vertically striped shirt", "One pant leg Rolled up", "Raiders Snapbacks", "Mood Ring",
     "Dumb and Dumber", "Jurassic Park", "Forrest Gump","Pulp Fiction","Titanic","Cruel Intentions","Space Jam","Toy Story",
@@ -114,20 +82,29 @@ var wordList = ["Overalls", "Neon Windbreakers", "Vertically striped shirt", "On
     "Marbles","Tamagotchi","Pogs","Barbie","Sky Dancers","Gameboy Nintendo","Polly Pocket","Sega Game Gear","Troll Doll","Tickle Me Elmo",];
 
 
-var audio = new Audio('assets/images/mcbomfunk-background-music.mp3');
+var images = {
+    "Overalls": "",
+    "Tamagotchi": ""
+};
+
+
+var audio = new Audio('./assets/music/topsong90s-bakcground-music.mp3');
 
 
 
 
 // Function to start a new game and split the word.
 function newGame() {
+    currentGame = true;
     placeholder = "";
     guessesLeft = 10;
     lettersGuessed = "";
-    audio.play();
+    //audio.play();
     word = wordList[Math.floor(Math.random() * wordList.length)];
     splitWord = word.split("");
     currentWord = 0;
+
+    var src = images[wordList[currentWord]];
 
     // word = wordList[currentWord];
     wordLength = word.length;
@@ -145,8 +122,11 @@ function newGame() {
 
 // Function to transfer keypress to userguess.
 document.onkeypress = function(event) {
+    if (!currentGame) {
+        newGame();
+    }
     var correct = 0;
-    var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+    var userGuess = String.fromCharCode(event.keyCode);
 
     console.log(word);
 
@@ -159,9 +139,10 @@ document.onkeypress = function(event) {
 
     for (var i = 0;i<splitWord.length;i++) {
         //If correct.
-        if (userGuess == word.substring(i, i + 1)) {
+        var currentLetter = splitWord[i];
+        if (userGuess.toLowerCase() === currentLetter || userGuess.toUpperCase() === currentLetter) {
             correct++;
-            placeholder = placeholder.substring(0, i) + userGuess + placeholder.substring(i +1, placeholder.length +1);
+            placeholder = placeholder.substring(0, i) + currentLetter + placeholder.substring(i +1, placeholder.length +1);
             document.getElementById("placeholder").innerHTML = placeholder;
         }
     }
@@ -193,108 +174,3 @@ document.onkeypress = function(event) {
         newGame();
     }
 }
-
-
-
-// //var buttons = function () {
-// //    myButtons = document.getElementById('buttons');
-// //    letters = document.createElement('ul');
-// // }
-//
-//
-//
-//   /// OnClick Function
-// //check = function () {
-//   //  list.onclick = function () {
-// //     this.setAttribute("class", "active");
-//   //      this.onclick = null;
-//     //    for (var i = 0; i < word.length; i++) {
-//       //      if (word[i] === guess) {
-//       //          guesses[i].innerHTML = guess;
-//                 counter += 1;
-//             }
-//         }
-//         var j = (word.indexOf(guess));
-//         if (j === -1) {
-//             lives -= 1;
-//             comments();
-//             animate();
-//         } else {
-//             comments();
-//         }
-//     };
-// };
-//
-// //
-// //     // Create alphabet ul
-// // for (var i = 0; i < alphabet.length; i++) {
-// //     letters.id = 'alphabet';
-// //     list = document.createElement('li');
-// //     list.id = 'letter';
-// //     list.innerHTML = alphabet[i];
-// //     check();
-// //     myButtons.appendChild(letters);
-// //     letters.appendChild(list);
-// // }
-// //       };
-// //
-// //
-// //     // Select Category
-// // var selectCat = function () {
-// //      if (chosenCategory === categories[0]) {
-// //             categoryName.innerHTML = "The Chosen Category Is Clothes";
-// //      } else if (chosenCategory === categories[1]) {
-// //             categoryName.innerHTML = "The Chosen Category Is Movie";
-// //      } else if (chosenCategory === categories[2]) {
-// //             categoryName.innerHTML = "The Chosen Category Is Music";
-// //      } else if (chosenCategory === categories[3]) {
-// //             categoryName.innerHTML = "The Chosen Category Is Game";
-// //     }
-// //  };
-//
-//
-//
-// // Play
-// play = function () {
-//     categories = [
-//         ["Overalls", "Neon Windbreakers", "Vertically striped shirt", "One pant leg Rolled up", "Raiders Snapbacks", "Mood Ring", "Rollerblades", "Bandanas", "Baggys jeans", "FUBU", "Spiked hair", "Bike caps", "Hoop earings", "L.A Lites","Tatoo Necklace","Air Jordans","Slap Bracelet"],
-//         ["Dumb and Dumber", "Jurassic Park", "Forrest Gump","Pulp Fiction","Titanic","Cruel Intentions","Space Jam","Toy Story","Jumanji","Matrix","Aladin","The Lion King","Blade","Romeo & Juliet","Fight club","Mrs Doubfire","Home Alone","The Shawshank Redemption","Boyz N the Hood","Heat","Reservoir Dog"],
-//         ["Outkast","Destiny's Child","Spice Girls","Hanson","NSYNC","2B3","Green Day","Backstreet Boys","BoyZ II Men","No Doubt","Daft Punk","TLC","Fugees","Alliage","Boyzone","Liberty X","Ace of Base","Atomic kitten","Linkin Park","Take That","Worlds Apart"],
-//         ["Marbles","Tamagotchi","Pogs","Barbie","Sky Dancers","Gameboy Nintendo","Polly Pocket","Sega Game Gear","Troll Doll","Tickle Me Elmo","Ninja turtles","Street Sharks","Furby","Skip it","Power rangers"]
-//     ]};
-
-
-
-//
-//     chosenCategory = categories[Math.floor(Math.random() * categories.length)];
-//     word = chosenCategory[Math.floor(Math.random() * chosenCategory.length)];
-//     word = word.replace(/\s/g, "-");
-//     console.log(word);
-//     buttons();
-//
-//     guesses = [ ];
-//     lives = 10;
-//     counter = 0;
-//     space = 0;
-//     result();
-//     comments();
-//     selectCat();
-//     //canvas();
-//     }
-//
-//     play();
-//
-//
-//
-//
-//
-// // Reset
-//
-// /*document.getElementById('reset').onclick = function() {
-//     correct.parentNode.removeChild(correct);
-//     letters.parentNode.removeChild(letters);
-//     showClue.innerHTML = "";
-//     context.clearRect();
-//     play();
-// };
-// };
