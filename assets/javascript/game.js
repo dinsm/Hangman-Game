@@ -78,13 +78,48 @@ var currentGame = false;
 
 var wordList = ["Overalls", "Neon Windbreakers", "Vertically striped shirt", "One pant leg Rolled up", "Raiders Snapbacks", "Mood Ring",
     "Dumb and Dumber", "Jurassic Park", "Forrest Gump","Pulp Fiction","Titanic","Cruel Intentions","Space Jam","Toy Story",
-    "Outkast","Destiny's Child","Spice Girls","Hanson","NSYNC","2B3","Green Day","Backstreet Boys","BoyZ II Men","No Doubt","Daft Punk","TLC", "Fugees",
+    "Outkast","Destinys Child","Spice Girls","Hanson","NSYNC","Green Day","Backstreet Boys","BoyZ II Men","No Doubt","Daft Punk","TLC","Fugees",
     "Marbles","Tamagotchi","Pogs","Barbie","Sky Dancers","Gameboy Nintendo","Polly Pocket","Sega Game Gear","Troll Doll","Tickle Me Elmo",];
 
 
-var images = {
-    "Overalls": "",
-    "Tamagotchi": ""
+var wallPaper = {
+    "Overalls": "assets/images/overalls.jpg",
+    "Neon Windbreakers": "assets/images/neon-windbreakers.jpg",
+    "Vertically striped shirt": "assets/images/vertically-stripped-shirt.jpeg",
+    "One pant leg Rolled up": "assets/images/one-pant-leg.png",
+    "Raiders Snapbacks": "assets/images/raiders-snapbacks.jpg",
+    "Mood Ring": "assets/images/mood-ring.jpg",
+    "Dumb and Dumber": "assets/images/dumb-dumber.jpg",
+    "Jurassic Park": "assets/images/jurrasic-park.jpg",
+    "Forrest Gump": "assets/images/forrest-gump.jpg",
+    "Pulp Fiction": "assets/images/pulp-fiction.jpg",
+    "Titanic": "assets/images/.jpg",
+    "Cruel Intentions": "assets/images/cruel-intention.jpg",
+    "Space Jam": "assets/images/space-jam.jpg",
+    "Toy Story": "assets/images/toy-story.jpg",
+    "Outkast": "assets/images/outkast.jpg",
+    "Destiny's Child": "assets/images/destinys-child.jpg",
+    "Spice Girls": "assets/images/spice-girls.jpg",
+    "Hanson": "assets/images/hanson.jpeg",
+    "NSYNC": "assets/images/nsync.jpg",
+    "Green Day": "assets/images/green-day.jpg",
+    "Backstreet Boys": "assets/images/backstreets-boy.jpg",
+    "BoyZ II Men": "assets/images/boys2men.jpg",
+    "No Doubt": "assets/images/no-doubt.jpg",
+    "Daft Punk": "assets/images/daft-punk.jpeg",
+    "TLC": "assets/images/tlc.jpg",
+    "Fugees": "assets/images/fugees.jpg",
+    "Marbles": "assets/images/marbles.jpg",
+    "Tamagotchi": "assets/images/tamagotchi.jpg",
+    "Pogs": "assets/images/pogs.jpg",
+    "Barbie": "assets/images/barbie.jpg",
+    "Sky Dancers": "assets/images/sky-dancers.jpg",
+    "Gameboy Nintendo": "assets/images/nintendo-gameboy.jpg",
+    "Polly Pocket": "assets/images/polly-pocket.jpg",
+    "Sega Game Gear": "assets/images/game-gear-sega.jpg",
+    "Troll Doll": "assets/images/troll-doll.jpg",
+    "Tickle Me Elmo": "assets/images/tickle-elmo.jpg"
+
 };
 
 
@@ -104,7 +139,7 @@ function newGame() {
     splitWord = word.split("");
     currentWord = 0;
 
-    var src = images[wordList[currentWord]];
+    $('#wallPaper').attr('src',images[wordList[currentWord]]);
 
     // word = wordList[currentWord];
     wordLength = word.length;
@@ -173,4 +208,4 @@ document.onkeypress = function(event) {
         alert("The word was " + word);
         newGame();
     }
-}
+};
