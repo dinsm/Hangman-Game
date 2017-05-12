@@ -5,14 +5,14 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>HangManGame</title>
-        <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
-        <script src="./assets/javascript/game.js" type="text/javascript"></script>
+        <script src="assets/javascript/game.js" type="text/javascript"></script>
     </head>
 
 
-    <body>
-    <h1>HangMan</h1>
+    <body>      <!--onload="newGame()"-->
+        <h1>HangMan</h1>
 
         <div class="popup" onclick="myFunction()">How To Play?!
             <span class="popuptext" id="myPopup">To guess the word unknown ....Click on the letters !!</span>
@@ -20,7 +20,7 @@
 
         <div id="introPage">
             <div id="introText">
-                <p>Welcome to Hangman game!</p>
+                <img src="assets/images/ilove-90s.jpg" alt="90's Logo"><br><h1>Welcome to the 90's Hangman!</h1></div>
                 <p>Let's begin!</p>
                 <div id="buttonContainer">
                     <div id="sp" onclick="sp()">Single player</div>
@@ -28,7 +28,6 @@
                 </div>
             </div>
 
-         </div>
 
         <div id="singlePage">
             <p>Pick a category:</p>
@@ -46,9 +45,40 @@
             </div>
         </div>
 
+        <div class="wrapper">
+            <div class="header">
+                <div class="logo"><img src="assets/images/backin-theday.jpg" alt="90's Logo"><br><h1>Be Real!</h1></div>
+            </div>
+            <div class="container">
+                <div class="wordguess">
+                    <div id="placeholder"></div>
+                </div>
+            </div>
+            <div class="empt">
+                <div class="results_wins">
+                    Wins: <span id="wins"></span>
+                </div>
+                <div class="results_losses">
+                    Losses: <span id="losses"></span>
+                </div>
+                <div id="gameStatus"></div>
+            </div>
+            <div class="empt">
+                <div class="guesses_left">
+                    Guesses Remaining: <span id="guessesLeft"></span>
+                </div>
+                <div class="letters_guessed">
+                    Letters Already Guessed:<br><div id="lettersGuessed"></div>
+                </div>
+            </div>
+            <div>
+            </div>
+        </div>
 
 
-    <div class="wrapper">
+
+
+    <!--<div class="wrapper">
         <div id="buttons">
         </div>
             <p id="categoryName"></p>
@@ -85,16 +115,18 @@
                 <a id="z">Z</a>
             </div>
         </div>
-            <p id="mylives"></p>
-            <p id="clue">Clue -</p>
-    </div>
+            <p id="mylives">Live left</p>
+            <p id="clue">Clue</p>
+    </div>-->
 
 
 
 
+<!--
 
     <div id="again" onClick="reset()">Play again!</div>
     <div id="home" onClick="window.location.reload()">Main menu</div>
+-->
 
 
 
@@ -112,14 +144,6 @@
         <div id="newWord">
             <button type="button" onclick="newHand">New Hand?</button>
         </div>
-
-
-
-
-
-
-
-
 
 
     <script>
