@@ -139,7 +139,7 @@ function newGame() {
     splitWord = word.split("");
     currentWord = 0;
 
-    $('#wallPaper').attr('src',images[wordList[currentWord]]);
+  //  $('#wallPaper').attr('src',images[wordList[currentWord]]);    Image appears with the
 
     // word = wordList[currentWord];
     wordLength = word.length;
